@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects Interface</title>
+    <style>
+         .watermark {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure it's behind all content */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.1; /* Adjust transparency */
+      font-size: 5rem; /* Adjust size */
+      color: gray;
+      pointer-events: none; /* Ensure it's non-interactive */
+      white-space: nowrap; /* Prevent text wrapping */
+    }
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+            background-size: cover;
+            background-repeat:no-repeat;
+            background-image: url("Black Purple Modern Artificial Intelligence Logo copy.png");
+        }
+
+        /* Container for the subjects */
+        .subjects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            width: 80%;
+            max-width: 900px;
+            text-decoration: none;
+        }
+
+        /* Individual subject box */
+        .subject-box {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Hover effect for subject boxes */
+        .subject-box:hover {
+            background-color: #f4f808;
+        }
+
+        /* Subject title */
+        .subject-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">EUCLID</div>
+
+    <div class="subjects-container">
+        <div class="subject-box">
+            <div class="subject-name" style="text-decoration:none;"><a href="chapters.html" style="text-decoration: none;">Mathematics</a></div>
+        </div>
+        
+        <div class="subject-box">
+            <div class="subject-name"><a href="chapters.html" style="text-decoration: none;">chemistry</a></div>
+        </div>
+        <div class="subject-box">
+            <div class="subject-name"><a href="chapters.html" style="text-decoration: none;">physics</a></div>
+        </div>
+        <div class="subject-box">
+            <div class="subject-name"><a href="chapters.html" style="text-decoration: none;">Computer science</a></div>
+        </div>
+        <div class="subject-box">
+            <div class="subject-name"><a href="chapter.html" style="text-decoration: none;">English</a></div>
+        </div>
+       
+    </div>
+
+</body>
+</html>

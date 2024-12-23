@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .chart-container {
+    position: relative;
+    width: 80%;
+    height: 300px;
+    border: 2px solid #333;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  
+  .chart {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .solid {
+    position: absolute;
+    bottom: 0; /* Line starts at the bottom of the container */
+    width: 60px; /* Width of the line */
+    background-color: #83b799; /* Line color */
+    border-radius: 30000px;
+  }
+  

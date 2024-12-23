@@ -1,0 +1,80 @@
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image:url("Black Purple Modern Artificial Intelligence Logo (1) copy.png");
+}
+
+/* Body setup */
+body,
+html {
+    
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Background Image */
+.content {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    text-decoration:none ;
+  
+    
+    /* Replace with your image URL */
+     background-size: cover;
+    background-position: center;
+    height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+/* Overlay for text readability */
+.overlay {
+    
+    text-align: center;
+    color: rgb(232, 206, 245);
+    padding: 20px;
+    background: transparent;
+    /* Semi-transparent overlay */
+    border-radius: 10px;
+    max-width: 80%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Heading Style */
+.overlay h1 {
+    font-size: 100px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+/* Paragraph Style */
+.overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Button Style */
+.btn {
+    /* display: inline-block; */
+    /* background-color: #009688; */
+    /* color: white; */
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 0px;
+    border-radius: 0px;
+    /* transition: background-color 0.3s; */
+}
+
+.btn:hover {
+    background-color: #00796b;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter List Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("media/pexels-tima-miroshnichenko-5710597 copy.jpg");
+            background-size: cover;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+           
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+            background-image: url("Black Purple Modern Artificial Intelligence Logo copy.png");
+        }
+        h1 {
+            color: #d11919;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            background-color: #e0e0e0;
+            color: rgb(18, 72, 110);
+            font-size: large;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        li:hover {
+            background-color: #9188c3;
+            color: rgb(6, 52, 108);
+        }
+        .chapter-detail {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            display: none;
+        }
+        .chapter-detail.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Chapters</h1>
+        <ul>
+            <li>
+                <a href="#chapter1" class="chapter-link" style="text-decoration: none;">Chapter 1: Introduction to Programming</a>
+                <div id="chapter1" class="chapter-detail">
+                    <a href="chaptersvideos.html" style="text-decoration: none;"><p>This chapter introduces the basics of programming using Python.</p></a>
+                </div>
+            </li>
+            <li>
+                <a href="#chapter2" class="chapter-link" style="text-decoration: none;">Chapter 2: Data Structures</a>
+                <div id="chapter2" class="chapter-detail">
+                    <a href="chaptersvideos.html" style="text-decoration: none;"><p>Learn about various data structures like lists, stacks, queues, and trees.</p></a>
+                </div>
+            </li>
+            <li>
+                <a href="#chapter3" class="chapter-link" style="text-decoration: none;">Chapter 3: Object-Oriented Programming</a>
+                <div id="chapter3" class="chapter-detail">
+                    <a href="chaptersvideos.html" style="text-decoration: none;"><p>This chapter explains the concepts of OOP, including classes and inheritance.</p></a>
+                </div>
+            </li>
+            <li>
+                <a href="#chapter4" class="chapter-link" style="text-decoration: none;">Chapter 4: Web Development Basics</a>
+                <div id="chapter4" class="chapter-detail">
+                    <a href="chaptersvideos.html" style="text-decoration: none;"><p>Learn the basics of web development, including HTML, CSS, and JavaScript.</p></a>
+                </div>
+            </li>
+            <li>
+                <a href="#chapter5" class="chapter-link" style="text-decoration: none;">Chapter 5: Algorithms and Problem Solving</a>
+                <div id="chapter5" class="chapter-detail">
+                    <a href="chaptersvideos.html" style="text-decoration: none;"> <p>This chapter focuses on common algorithms and problem-solving techniques.</p></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Optional JavaScript to toggle the visibility of chapter details
+        const links = document.querySelectorAll('.chapter-link');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const target = document.querySelector(e.target.getAttribute('href'));
+                target.classList.toggle('active');
+                e.preventDefault(); // Prevent default link action
+            });
+        });
+    </script>
+</body>
+</html>

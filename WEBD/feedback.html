@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Feedback Form</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 16px;
+      color: #555;
+    }
+
+    select,
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .stars {
+      display: inline-block;
+      font-size: 0;
+      cursor: pointer;
+    }
+
+    .star {
+      font-size: 30px;
+      color: #ccc;
+    }
+
+    .star:hover,
+    .star.selected {
+      color: #ff9900;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    /* Personalized message styles */
+    .feedback-message {
+      display: none;
+      background-color: #e7f7e7;
+      padding: 15px;
+      border-left: 5px solid #4CAF50;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Provide Your Feedback</h1>
+    <form id="feedbackForm">
+      <!-- Company Selection -->
+      <div class="form-group">
+        <label for="company">Select Course</label>
+        <select id="company" name="company" required onchange="updateCompanyLogo()">
+        <option value="select a option">Please select a option</option>
+          <option value="Company A">Computer science</option>
+          <option value="Company B">Mathematics</option>
+          <option value="Company C">Physics</option>
+          <option value="Company D">Chemistry</option>
+          <option value="Company E">English</option>
+        </select>
+      </div>
+
+      <!-- Star Rating -->
+      <div class="form-group">
+        <label for="rating">Rating (1 to 5 stars)</label>
+        <div id="rating" class="stars" onclick="setRating(event)">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+        </div>
+      </div>
+
+      <!-- Name Input -->
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <!-- Feedback Input -->
+      <div class="form-group">
+        <label for="feedback">Your Feedback</label>
+        <textarea id="feedback" name="feedback" rows="5" required></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <input type="submit" value="Submit Feedback">
+    </form>
+
+    <!-- Personalized Feedback Message -->
+    <div id="feedbackMessage" class="feedback-message"></div>
+  </div>
+
+  <script>
+    let selectedRating = 0;
+
+    // Function to handle company logo change dynamically (optional for each company)
+    function updateCompanyLogo() {
+      const company = document.getElementById('company').value;
+      const logoContainer = document.getElementById('companyLogoContainer');
+      let logoSrc = '';
+
+      if (company === 'Company A') {
+        logoSrc = 'companyA-logo.png'; // Replace with actual path to company logos
+      } else if (company === 'Company B') {
+        logoSrc = 'companyB-logo.png';
+      } else if (company === 'Company C') {
+        logoSrc = 'companyC-logo.png';
+      } else {
+        logoSrc = 'companyD-logo.png';
+      }
+
+      const logoImg = document.getElementById('companyLogo');
+      logoImg.src = logoSrc;
+      logoImg.alt = `${company} Logo`;
+    }
+
+    // Function to handle star rating
+    function setRating(event) {
+      const stars = document.querySelectorAll('.star');
+      const clickedStarValue = parseInt(event.target.getAttribute('data-value'));
+
+      // Reset all stars to unselected
+      stars.forEach(star => {
+        star.classList.remove('selected');
+      });
+
+      // Set the selected stars based on clicked value
+      for (let i = 0; i < clickedStarValue; i++) {
+        stars[i].classList.add('selected');
+      }
+
+      selectedRating = clickedStarValue;
+    }
+
+    // Handle form submission
+    document.getElementById('feedbackForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const company = document.getElementById('company').value;
+      const feedback = document.getElementById('feedback').value;
+
+      if (selectedRating === 0) {
+        alert("Please select a star rating!");
+        return;
+      }
+
+      // Create a personalized feedback message
+      const message = `Thank you, ${name}! We appreciate your feedback for ${company}: "${feedback}". You rated us ${selectedRating} out of 5 stars.`;
+
+      // Display the feedback message
+      const feedbackMessageDiv = document.getElementById('feedbackMessage');
+      feedbackMessageDiv.textContent = message;
+      feedbackMessageDiv.style.display = 'block';
+
+      // Clear the form fields
+      document.getElementById('feedbackForm').reset();
+      selectedRating = 0;
+      document.querySelectorAll('.star').forEach(star => {
+        star.classList.remove('selected');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
